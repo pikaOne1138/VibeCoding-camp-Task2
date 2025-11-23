@@ -149,6 +149,71 @@
       background-color: var(--secondary-bg);
     }
 
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .about-image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-strengths {
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .strength-item h3 {
+      color: var(--accent-color);
+      font-size: 1.25rem;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .strength-item p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    .about-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+    }
+
+    .btn-primary:hover {
+      background-color: #0ea5e9;
+      opacity: 1;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(56, 189, 248, 0.1);
+      opacity: 1;
+    }
+
     /* CSS:ABOUT-END */
 
     /* CSS:SKILLS-START */
@@ -172,6 +237,25 @@
 
       .nav {
         gap: 2rem;
+      }
+
+      /* About Section RWD */
+      .about-container {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 4rem;
+      }
+
+      .about-content {
+        flex: 1;
+        order: 1;
+      }
+
+      .about-image {
+        flex: 1;
+        order: 2;
+        position: sticky;
+        top: 6rem;
       }
     }
 
@@ -214,13 +298,39 @@
 
       <!-- SECTION:ABOUT-START -->
       <section id="about" class="section section-about" aria-labelledby="about-heading">
-        <div class="container">
-          <h2 id="about-heading" class="section-title">關於我</h2>
-          <p>這裡目前是 About 區的占位內容。</p>
-          <p>未來會用 Section SDD 產生更完整的內容，包含我的背景故事與經歷。</p>
-          <p style="color: #94a3b8; margin-top: 1rem; border: 1px dashed #475569; padding: 1rem;">
-            （開發者提示：之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在這兩個註解中間，完全取代現在這一區。）
-          </p>
+        <div class="container about-container">
+          <div class="about-content">
+            <h2 id="about-heading" class="section-title">關於我</h2>
+            <p>白天，我是一名工程師，維護並現代化大型的稅務/薪資系統，同時進行 Spring Boot、資料庫、PDF 產製等後端整合，也熟悉前端框架與介面重構。晚上，我投入在 AI
+              與身心學習領域，包含教學、工作坊帶領、Human Design 解讀，以及將 AI 工具整合進實際生活與工作流程。</p>
+            <p>不管是程式架構、AI
+              工具、學習系統，或是身心覺察，我習慣先釐清邏輯、再用直覺與體感做驗證。很多人說跟我合作很安心，因為我會把問題拆到能被理解的部分，再一起往前推進。我喜歡創造「理解後的自由感」，讓人既看懂，也能開始行動。</p>
+
+            <div class="about-strengths">
+              <div class="strength-item">
+                <h3>把複雜的東西拆簡單</h3>
+                <p>從工程、AI 到心理學，我能把龐雜的資訊結構化，轉成你能立即使用的方法或流程。</p>
+              </div>
+              <div class="strength-item">
+                <h3>打造可落地的數位工具與工作流程</h3>
+                <p>包含前後端整合、PDF 產製、AI Agent、RAG、Notion/N8N 自動化等，讓你從「想做」到「真的運作」。</p>
+              </div>
+              <div class="strength-item">
+                <h3>協助釐清方向、找到你的最佳策略</h3>
+                <p>結合 NLP、Human Design 與 AI 思考框架，幫助你看清現況、定位資源、突破卡住的地方，找到最對你身體且有效的方法。</p>
+              </div>
+            </div>
+
+            <div class="about-actions">
+              <a href="#projects" class="btn btn-primary">查看作品集</a>
+              <a href="#contact" class="btn btn-outline">聯絡我</a>
+            </div>
+          </div>
+
+          <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80"
+              alt="專注寫程式的工程師" loading="lazy">
+          </div>
         </div>
       </section>
       <!-- SECTION:ABOUT-END -->
