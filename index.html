@@ -1,263 +1,291 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
-<head></head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>萬萬 個人品牌網站</title>
-<meta name="description" content="這是一個全端工程師的個人品牌網站，展示我的個人背景、專業技能、精選作品集以及聯絡方式。歡迎瀏覽與交流。">
-<style>
-  /* CSS:BASE-START */
-  :root {
-    --bg-color: #C7EDCC;
-    /* User's Mint Green */
-    --text-color: #1e293b;
-    /* Dark Slate */
-    --accent-color: #047857;
-    /* Emerald 700 */
-    --secondary-bg: #c4f3c8;
-    /* Pale Green */
-    --nav-bg: rgba(232, 245, 233, 0.95);
-    --border-color: #86efac;
-  }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>萬萬 個人品牌網站</title>
+  <meta name="description" content="這是一個全端工程師的個人品牌網站，展示我的個人背景、專業技能、精選作品集以及聯絡方式。歡迎瀏覽與交流。">
+  <style>
+    /* CSS:BASE-START */
+    :root {
+      --bg-color: #C7EDCC;
+      /* User's Mint Green */
+      --text-color: #1e293b;
+      /* Dark Slate */
+      --accent-color: #047857;
+      /* Emerald 700 */
+      --secondary-bg: #c4f3c8;
+      /* Pale Green (User Adjusted) */
+      --nav-bg: rgba(232, 245, 233, 0.95);
+      --border-color: #86efac;
+    }
 
-  body {
-    margin: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
-      sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  .page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* Prevent horizontal scroll */
+    }
 
-  .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      /* Reduced padding for mobile */
+    }
 
-  a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-  a:hover {
-    opacity: 0.8;
-  }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
 
-  .site-header {
-    position: sticky;
-    top: 0;
-    background-color: var(--nav-bg);
-    border-bottom: 1px solid var(--border-color);
-    z-index: 1000;
-    padding: 1rem 0;
-  }
+    a:hover {
+      opacity: 0.8;
+    }
 
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    .site-header {
+      position: sticky;
+      top: 0;
+      background-color: var(--nav-bg);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      padding: 1rem 0;
+    }
 
-  .logo {
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--text-color);
-  }
+    .nav-container {
+      display: flex;
+      flex-direction: column;
+      /* Stack on mobile */
+      align-items: center;
+      gap: 1rem;
+    }
 
-  .nav {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .nav-link {
-    color: var(--text-color);
-    font-size: 0.95rem;
-  }
-
-  .nav-link:hover {
-    color: var(--accent-color);
-  }
-
-  .section {
-    padding: 4rem 0;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: var(--accent-color);
-  }
-
-  footer {
-    text-align: center;
-    padding: 2rem 0;
-    background-color: var(--secondary-bg);
-    color: #475569;
-    font-size: 0.875rem;
-  }
-
-  /* CSS:BASE-END */
-
-  /* CSS:HERO-START */
-  .section-hero {
-    text-align: center;
-    padding: 6rem 0;
-  }
-
-  .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .section-hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-
-  .hero-image {
-    margin: 2rem auto;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-
-  /* CSS:HERO-END */
-
-  /* CSS:ABOUT-START */
-  .section-about {
-    background-color: var(--secondary-bg);
-  }
-
-  .about-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .about-image {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .about-strengths {
-    margin: 2rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .strength-item h3 {
-    color: var(--accent-color);
-    font-size: 1.25rem;
-    margin: 0 0 0.5rem 0;
-  }
-
-  .strength-item p {
-    margin: 0;
-    color: #334155;
-  }
-
-  .about-actions {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.2s;
-  }
-
-  .btn-primary {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-  }
-
-  .btn-primary:hover {
-    background-color: #0ea5e9;
-    opacity: 1;
-  }
-
-  .btn-outline {
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-  }
-
-  .btn-outline:hover {
-    background-color: rgba(56, 189, 248, 0.1);
-    opacity: 1;
-  }
-
-  /* CSS:ABOUT-END */
-
-  /* CSS:SKILLS-START */
-  /* CSS:SKILLS-END */
-
-  /* CSS:PROJECTS-START */
-  .section-projects {
-    background-color: var(--secondary-bg);
-  }
-
-  /* CSS:PROJECTS-END */
-
-  /* CSS:CONTACT-START */
-  /* CSS:CONTACT-END */
-
-  /* CSS:RWD-START */
-  @media (min-width: 768px) {
-    .section-hero h1 {
-      font-size: 3.5rem;
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-color);
     }
 
     .nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      /* Allow wrapping */
+      justify-content: center;
+    }
+
+    .nav-link {
+      color: var(--text-color);
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-color);
+    }
+
+    .section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: var(--secondary-bg);
+      color: #475569;
+      font-size: 0.875rem;
+    }
+
+    /* CSS:BASE-END */
+
+    /* CSS:HERO-START */
+    .section-hero {
+      text-align: center;
+      padding: 6rem 0;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-hero h1 {
+      font-size: 2rem;
+      /* Smaller for mobile */
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .hero-image {
+      margin: 2rem auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* CSS:HERO-END */
+
+    /* CSS:ABOUT-START */
+    .section-about {
+      background-color: var(--secondary-bg);
+    }
+
+    .about-container {
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
     }
 
-    /* About Section RWD */
-    .about-container {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 4rem;
-    }
-
-    .about-content {
-      flex: 1;
-      order: 1;
-    }
-
     .about-image {
-      flex: 1;
-      order: 2;
-      position: sticky;
-      top: 6rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
-  }
 
-  /* CSS:RWD-END */
-</style>
+    .about-strengths {
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .strength-item h3 {
+      color: var(--accent-color);
+      font-size: 1.25rem;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .strength-item p {
+      margin: 0;
+      color: #334155;
+    }
+
+    .about-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+    }
+
+    .btn-primary:hover {
+      background-color: #0ea5e9;
+      opacity: 1;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(56, 189, 248, 0.1);
+      opacity: 1;
+    }
+
+    /* CSS:ABOUT-END */
+
+    /* CSS:SKILLS-START */
+    /* CSS:SKILLS-END */
+
+    /* CSS:PROJECTS-START */
+    .section-projects {
+      background-color: var(--secondary-bg);
+    }
+
+    /* CSS:PROJECTS-END */
+
+    /* CSS:CONTACT-START */
+    /* CSS:CONTACT-END */
+
+    /* CSS:RWD-START */
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+        /* Restore padding */
+      }
+
+      .section-hero h1 {
+        font-size: 3.5rem;
+        /* Restore font size */
+      }
+
+      .nav-container {
+        flex-direction: row;
+        /* Restore row layout */
+        justify-content: space-between;
+        gap: 0;
+      }
+
+      .nav {
+        gap: 2rem;
+        /* Restore gap */
+        flex-wrap: nowrap;
+      }
+
+      /* About Section RWD */
+      .about-container {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 4rem;
+      }
+
+      .about-content {
+        flex: 1;
+        order: 1;
+      }
+
+      .about-image {
+        flex: 1;
+        order: 2;
+        position: sticky;
+        top: 6rem;
+      }
+    }
+
+    /* CSS:RWD-END */
+  </style>
 </head>
 
 <body>
